@@ -32,7 +32,7 @@ public class UsdRestController {
         return MapperUtil.convertList(posts, this::convertToUsdDto);
     }
 
-    @GetMapping(value = "counter")
+    @GetMapping(value = "counter_usd")
     public ResponseEntity<List<Usd>> findAll(){
         final List<Usd> usds = usdService.findAll();
 

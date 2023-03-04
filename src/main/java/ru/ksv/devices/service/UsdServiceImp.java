@@ -16,6 +16,16 @@ public class UsdServiceImp implements UsdService {
 
     @Override
     public List<Usd> findAll() {
-        return (List<Usd>) usdRepo.findAll();
+        return usdRepo.findAll();
+    }
+
+    @Override
+    public List<Usd> findByLocateContaining(String locate) {
+        return usdRepo.findByLocateContaining(locate);
+    }
+
+    @Override
+    public List<Usd> findBySnContainingAndLocateContaining(String sn, String locate) {
+        return usdRepo.findBySnContainingAndLocateContaining(sn, locate);
     }
 }

@@ -4,8 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.ksv.devices.MapperUtil;
 import ru.ksv.devices.dto.TypeDto;
 import ru.ksv.devices.dto.UsdDto;
@@ -27,18 +26,23 @@ public class UsdRestController {
     }
 
     @GetMapping("/usd")
-    public List<UsdDto> findAllUsd() {
-        List<Usd> posts = usdService.findAll();
-        return MapperUtil.convertList(posts, this::convertToUsdDto);
+    public List<UsdDto> findAll() {
+        List<Usd> usds = usdService.findAll();
+        return MapperUtil.convertList(usds, this::convertToUsdDto);
     }
 
-    @GetMapping(value = "counter_usd")
-    public ResponseEntity<List<Usd>> findAll(){
-        final List<Usd> usds = usdService.findAll();
+    //выборка записей по части адреса, формат: /usd_locate/locate?'часть адреса'
+    @RequestMapping(value="usd_locate", method= RequestMethod.GET)
+    public List<UsdDto> findByLocateContaining(@RequestParam(name = "locate", required = false) String locate) {
+        final List<Usd> usds = usdService.findByLocateContaining(locate);
+        return MapperUtil.convertList(usds, this::convertToUsdDto);
+    }
 
-        return usds != null && !usds.isEmpty()
-                ? new ResponseEntity<>(usds, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    //выборка записей по части адреса и части заводского номера, формат: /usd_sn_locate?sn='часть номер&locate='часть адреса'
+    @RequestMapping(value="usd_sn_locate", method= RequestMethod.GET)
+    public List<UsdDto> findBySnContainingAndLocateContaining(@RequestParam(name = "sn", required = false) String sn, @RequestParam(name = "locate", required = false) String locate) {
+        final List<Usd> usds = usdService.findBySnContainingAndLocateContaining(sn, locate);
+        return MapperUtil.convertList(usds, this::convertToUsdDto);
     }
 
     private UsdDto convertToUsdDto(Usd usd) {

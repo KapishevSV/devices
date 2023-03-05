@@ -20,12 +20,12 @@ public class UsdServiceImp implements UsdService {
     }
 
     @Override
-    public List<Usd> findByLocateContaining(String locate) {
-        return usdRepo.findByLocateContaining(locate);
+    public List<Usd> findBySnContainingAndLocateContaining(String sn, String locate) {
+        return usdRepo.findBySnContainingAndLocateContaining(sn, locate);
     }
 
     @Override
-    public List<Usd> findBySnContainingAndLocateContaining(String sn, String locate) {
-        return usdRepo.findBySnContainingAndLocateContaining(sn, locate);
+    public void insertUsd(String sn, String locate, Integer type_id) {
+        usdRepo.insertUsd(sn, locate, type_id);
     }
 }

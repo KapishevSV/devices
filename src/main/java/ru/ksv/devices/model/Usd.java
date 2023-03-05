@@ -22,5 +22,6 @@ public class Usd {
     private String locate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Type type;
+    @JoinColumn(name = "type_id", referencedColumnName = "id")
+    private TypeUsd typeUsd;
 }

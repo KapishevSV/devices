@@ -13,6 +13,6 @@ public class UsdDto {
 
     private String locate;
 
-    @JsonProperty("Type")
+    @JsonProperty("TypeUsd")
     TypeDto typeDto;
 }

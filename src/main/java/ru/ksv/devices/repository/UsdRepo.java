@@ -23,4 +23,8 @@ public interface UsdRepo extends JpaRepository<Usd, Integer> {
     @Transactional
     @Query(value = "CALL insert_usd(:sn, :locate, :type_id);", nativeQuery = true)
     void insertUsd(@Param("sn") String sn, @Param("locate") String locate, @Param("type_id") Integer type_id);
+
+    @Modifying
+    @Transactional
+    Usd save(Usd usd);
 }

@@ -9,4 +9,6 @@ public interface UsdService {
     List<Usd> findBySnContainingAndLocateContaining(String sn, String locate);
 
     void insertUsd(String sn, String locate, Integer type_id);
+
+    void create(Usd usd);
 }

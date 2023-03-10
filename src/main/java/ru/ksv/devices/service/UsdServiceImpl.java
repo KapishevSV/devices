@@ -1,16 +1,17 @@
 package ru.ksv.devices.service;
 
 import org.springframework.stereotype.Service;
+import ru.ksv.devices.model.TypeUsd;
 import ru.ksv.devices.model.Usd;
 import ru.ksv.devices.repository.UsdRepo;
 
 import java.util.List;
 
 @Service
-public class UsdServiceImp implements UsdService {
+public class UsdServiceImpl implements UsdService {
     private final UsdRepo usdRepo;
 
-    public UsdServiceImp(UsdRepo usdRepo) {
+    public UsdServiceImpl(UsdRepo usdRepo) {
         this.usdRepo = usdRepo;
     }
 
@@ -27,5 +28,10 @@ public class UsdServiceImp implements UsdService {
     @Override
     public void insertUsd(String sn, String locate, Integer type_id) {
         usdRepo.insertUsd(sn, locate, type_id);
+    }
+
+    @Override
+    public void create(Usd usd) {
+        usdRepo.save(usd);
     }
 }

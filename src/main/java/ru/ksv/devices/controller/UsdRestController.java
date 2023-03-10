@@ -47,6 +47,13 @@ public class UsdRestController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    //добавление новой записи, другой вариант
+    @PostMapping(value = "/add2")
+    public ResponseEntity<?> insert(@RequestBody Usd usd){
+        usdService.create(usd);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
     private UsdDto convertToUsdDto(Usd usd) {
         UsdDto usdDto = modelMapper.map(usd, UsdDto.class);
         usdDto.setTypeDto(convertToTypeDto(usd.getTypeUsd()));

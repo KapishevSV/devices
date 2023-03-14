@@ -11,4 +11,8 @@ public interface UsdService {
     void insertUsd(String sn, String locate, Integer type_id);
 
     void create(Usd usd);
+
+    boolean update(Usd usd);
+
+    boolean delete(Integer id);
 }

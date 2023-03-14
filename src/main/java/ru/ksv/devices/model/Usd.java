@@ -13,7 +13,7 @@ public class Usd {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usd")
-    private Long id;
+    private Integer id;
 
     @Column(name = "sn")
     private String sn;

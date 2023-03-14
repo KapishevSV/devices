@@ -25,7 +25,7 @@ public class UsdRestController {
         this.usdService = usdService;
         this.modelMapper = modelMapper;
     }
-
+    //выборка всех записей
     @GetMapping("/find_all")
     public List<UsdDto> findAll() {
         List<Usd> usds = usdService.findAll();
@@ -52,6 +52,22 @@ public class UsdRestController {
     public ResponseEntity<?> insert(@RequestBody Usd usd){
         usdService.create(usd);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    //обновление usd
+    @PutMapping(value = "/update")
+    public ResponseEntity<?> updateType(@RequestBody Usd usd){
+        usdService.update(usd);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //удаление usd, /delete?id=XX
+    @DeleteMapping(value = "/delete")
+    public ResponseEntity<?> deleteType(@RequestParam(name = "id", required = true) Integer id){
+        if(usdService.delete(id)){
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     private UsdDto convertToUsdDto(Usd usd) {

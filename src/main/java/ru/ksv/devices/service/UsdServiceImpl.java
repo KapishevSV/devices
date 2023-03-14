@@ -1,7 +1,6 @@
 package ru.ksv.devices.service;
 
 import org.springframework.stereotype.Service;
-import ru.ksv.devices.model.TypeUsd;
 import ru.ksv.devices.model.Usd;
 import ru.ksv.devices.repository.UsdRepo;
 
@@ -33,5 +32,24 @@ public class UsdServiceImpl implements UsdService {
     @Override
     public void create(Usd usd) {
         usdRepo.save(usd);
+    }
+
+    @Override
+    public boolean update(Usd usd) {
+        if(usdRepo.existsById(usd.getId())){
+            usd.setId(usd.getId());
+            usdRepo.save(usd);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean delete(Integer id) {
+        if(usdRepo.existsById(id)){
+            usdRepo.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

@@ -1,8 +1,9 @@
-package ru.ksv.devices.service;
+package ru.ksv.devices.service.impl;
 
 import org.springframework.stereotype.Service;
 import ru.ksv.devices.model.Usd;
 import ru.ksv.devices.repository.UsdRepo;
+import ru.ksv.devices.service.UsdService;
 
 import java.util.List;
 

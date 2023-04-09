@@ -1,9 +1,10 @@
-package ru.ksv.devices.service;
+package ru.ksv.devices.service.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.ksv.devices.model.TypeUsd;
 import ru.ksv.devices.repository.TypeUsdRepo;
+import ru.ksv.devices.service.TypeUsdService;
 
 import java.util.List;
 import java.util.Optional;

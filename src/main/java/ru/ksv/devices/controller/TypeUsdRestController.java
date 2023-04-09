@@ -1,6 +1,5 @@
 package ru.ksv.devices.controller;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/devices/api/type_usd/v1")
+@RequestMapping("/devices/api/v1/type_usd")
 public class TypeUsdRestController {
     private final TypeUsdService typeUsdService;
 

@@ -15,7 +15,7 @@ import ru.ksv.devices.service.UsdService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/devices/api/usd/v1")
+@RequestMapping("/devices/api/v1/usd")
 public class UsdRestController {
     private final UsdService usdService;
     private ModelMapper modelMapper;

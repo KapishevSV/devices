@@ -17,7 +17,7 @@
 		<java.version>11</java.version>
 		<encoding>UTF-8</encoding>
 		<postgresql.version>42.6.0</postgresql.version>
-		<jsonwebtoken.version>0.11.5</jsonwebtoken.version>
+		<jsonwebtoken.version>0.9.1</jsonwebtoken.version>
 		<liquibase.version>4.20.0</liquibase.version>
 		<modelmapper.version>3.1.1</modelmapper.version>
 		<projectlombok.version>1.18.26</projectlombok.version>
@@ -48,7 +48,7 @@
 		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt-api</artifactId>
+			<artifactId>jjwt</artifactId>
 			<version>${jsonwebtoken.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->

@@ -11,6 +11,7 @@
 	<groupId>ru.ksv</groupId>
 	<artifactId>devices</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>devices</name>
 	<description>Accounting for electricity meters</description>
 	<properties>
@@ -21,6 +22,7 @@
 		<liquibase.version>4.20.0</liquibase.version>
 		<modelmapper.version>3.1.1</modelmapper.version>
 		<projectlombok.version>1.18.26</projectlombok.version>
+		<tomcat.version>9.0.74</tomcat.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -75,6 +77,12 @@
 			<artifactId>modelmapper</artifactId>
 			<version>${modelmapper.version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-catalina</artifactId>
+			<version>${tomcat.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -82,6 +90,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

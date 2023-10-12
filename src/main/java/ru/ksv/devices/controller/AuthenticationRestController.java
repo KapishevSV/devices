@@ -21,7 +21,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/devices/api/v1/auth/")
-public class AuthenticationRestController {
+public class  AuthenticationRestController {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider jwtTokenProvider;
     private final UserService userService;
@@ -29,7 +29,7 @@ public class AuthenticationRestController {
     @Autowired
     public AuthenticationRestController(AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider, UserService userService) {
         this.authenticationManager = authenticationManager;
-        this.jwtTokenProvider = jwtTokenProvider;
+        this.jwtTokenProvider = jwtTokenProvider;  
         this.userService = userService;
     }
 
